@@ -14,7 +14,7 @@ app.use(cookieParser()); // parse cookie data
 app.get("/api/tweets", function indexTweet(req, res){
   res.send({
     data: [
-      { message: "Hardcoding data is teh best" },
+      { message: "In software systems, it is often the early bird that makes the worm." },
       { message: "Everything should be built top-down, except the first time." },
       { message: "If you have a procedure with ten parameters, you probably missed some." }
     ]
@@ -25,7 +25,8 @@ app.get("/api/tweets/:id", function showTweet(req, res){
   var tweets = [
       { message: "Once you understand how to write a program get someone else to write it." },
       { message: "The string is a stark data structure and everywhere it is passed there is much duplication of process. It is a perfect vehicle for hiding information." },
-      { message: "There are two ways to write error-free programs; only the third one works." }
+      { message: "There are two ways to write error-free programs; only the third one works." },
+      { message: "Every program is a part of some other program and rarely fits." }
     ];
 
   // var tweet = ...
@@ -55,7 +56,7 @@ app.post("/api/tweets", function createTweet(req, res){
 
 app.use("/challenges", express.static("challenges"));
 app.get("/nice-work", function(req, res){
-  res.send("Nice Work!")
+  res.send("<h2>Nice Work!</h2> You submitted an HTML form! (But did you want to use AJAX?)")
 })
 
 

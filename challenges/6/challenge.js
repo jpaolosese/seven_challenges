@@ -13,3 +13,31 @@ $(document).ready(function(){
   */
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// IGNORE
+document.cookie = "logged_in=; path=/";

@@ -39,10 +39,11 @@ $(document).ready(function(){
 // IGNORE
 
 $(document).ready(function(){
-  bindLoginToggleButton();
+  setupLoggedInButton();
 })
 
-function bindLoginToggleButton(){
+function setupLoggedInButton(){
+  eraseCookie("logged_in");
   $("button#login-logout").on("click", function(e){
     if ( readCookie("logged_in") ) {
       eraseCookie("logged_in")

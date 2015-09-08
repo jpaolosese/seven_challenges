@@ -16,6 +16,8 @@ nodemon # or node index.js
 Then:
 - Go to `http://localhost:3000/challenges/` for the list of challenges.
 - See `/challenges/1/challenge.js` for challenge #1 instructions.
+- All quotes are by [Alan Perlis](https://en.wikipedia.org/wiki/Alan_Perlis).
+
 
 #### Bonuses
 Once you've completed the challenges, try these stretch goals:
