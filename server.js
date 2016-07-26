@@ -1,11 +1,26 @@
-var express = require("express");
-var app = express();
+// require express and other modules
+var express = require("express"),
+    app = express();
 
+// parse incoming urlencoded form data
+// and populate the req.body object
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: true})); // parse POSTed data
+app.use(bodyParser.urlencoded({extended: true}));
 
+// parse incoming cookies in the HTTP Header
+// and populate the req.cookies object
 var cookieParser = require("cookie-parser");
-app.use(cookieParser()); // parse cookie data
+app.use(cookieParser());
+
+/************
+ * DATABASE *
+ ************/
+
+// Nothing to see here.
+
+/**********
+ * ROUTES *
+ **********/
 
 /*
  * API ENDPOINTS
@@ -51,7 +66,7 @@ app.post("/api/tweets", function createTweet(req, res){
 })
 
 /*
- * Challenges
+ * Challenge Endpoints - DO NOT MODIFY
  */
 
 app.use("/challenges", express.static("challenges"));
@@ -60,9 +75,9 @@ app.get("/nice-work", function(req, res){
 })
 
 
-/*
- * Server
- */
+/**********
+ * SERVER *
+ **********/
 
 app.listen(3000, function(){
   console.log("Server running on localhost:3000");
