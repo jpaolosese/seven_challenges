@@ -19,6 +19,9 @@ $(document).ready(function(){
       // var item = ...
       // $("div#target").append("<p>" + item.message + "</p>")
     //
+    items.forEach(function (item) {
+      $("div#target").append("<p>" + item.message + "</p>");
+    });
   }
 
   render(response.data);

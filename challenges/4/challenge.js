@@ -19,5 +19,8 @@ $(document).ready(function(){
   // AJAX request to `/api/tweets/1`
     // render(response.data);
   //
+  $.get('/api/tweets/2', function success(response) {
+    render(response.data);
+  })
 
 })

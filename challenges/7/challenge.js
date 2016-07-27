@@ -13,14 +13,21 @@ $(document).ready(function(){
    * render the ajax-response data, or alert the user of the error?
    * NOTE: When the user is logged in, the cookie is: `logged_in=true`;
   */
+  $('form').submit(function handleSubmit(e) {
+    e.preventDefault();
+    var $form = $('form');
+    var data = $form.serialize();
 
-  $.post("/api/tweets")
-   .success(function handleSuccess(){
-      // render response data
-   })
-   .error(function handleError(){
-      // alert the user that they need to login (401, "not authorized")
-   })
+    $.post("/api/tweets", data)
+     .success(function handleSuccess(response){
+        // render response data
+        render(response.data);
+     })
+     .error(function handleError(response, status){
+        // alert the user that they need to login (401, "not authorized")
+        alert('Error: log in, jackass', status);
+     })
+  });
 
 })
 

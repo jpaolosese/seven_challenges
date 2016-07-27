@@ -44,20 +44,31 @@ app.get("/api/tweets/:id", function showTweet(req, res){
     { message: "Every program is a part of some other program and rarely fits." }
   ];
 
-  // var tweet = ...
+  var tweetIndex = req.params.id;
+  var tweet = tweets[tweetIndex];
 
   res.send({
-    // data: [ tweet ] // note we're sending back an array of one.
+    data: [ tweet ] // note we're sending back an array of one.
   });
 })
 
 app.post("/api/tweets", function createTweet(req, res){
   console.log("req.cookies", req.cookies);
 
+  var logged_in = req.cookies.logged_in;
+  if (logged_in !== "true") {
+    return res.sendStatus(401);
+  }
+
+  var newTweet = req.body;
+
   if (req.xhr ) {
     // it was an AJAX Request, so we need to respond with
     // a JSON object containing the newly created tweet
     // or HTTP Status Code 401, "not authorized"
+    res.send({
+      data: [ newTweet ]
+    });
   } else {
     // it was an HTML Form Request, so we need to redirect
     res.redirect("/nice-work");
